@@ -31,7 +31,7 @@ async function getFlights(req,res){
     const flight=await FlightService.getFlights(req.query);
     SuccessResponse.data=flight;
     return res
-    .status(StatusCodes.CREATED)
+    .status(StatusCodes.OK)
     .json(SuccessResponse);
     }
     catch(error){
