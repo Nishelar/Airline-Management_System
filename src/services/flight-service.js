@@ -65,8 +65,30 @@ async function getFlights(query){
     }
 }
 
+async function getFlight(id){
+    try {
+     const flight=await flightRepository.get(id);
+     return flight;   
+    } catch (error) {
+        throw new AppError("Cannot find the flight you are looking for",error.statusCode);    
+    }
+}
+
+async function updateSeats(data){
+    try {
+       console.log(data); 
+       const flight=await flightRepository.updateSeats(data);
+       return flight; 
+    } catch (error) {
+        console.log(error)
+        throw new AppError("Cannot update  the seats for the flight you are looking for",error.statusCode);
+    }
+}
+
 
 module.exports={
     createFlight,
-    getFlights
+    getFlights,
+    getFlight,
+    updateSeats
 }

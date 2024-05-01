@@ -8,4 +8,8 @@ flightRoutes.post('/',validateCreateRequest,FlightController.createFlight);
 
 flightRoutes.get('/',FlightController.getFlights);
 
+flightRoutes.get('/:id',FlightController.getFlight);
+
+flightRoutes.patch('/:id/seats',FlightController.updateSeats);
+
 module.exports=flightRoutes;
